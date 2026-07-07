@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export function CalendarView() {
-  const [cursor, setCursor] = React.useState(new Date(2024, 4, 1));
+  const [cursor, setCursor] = React.useState(new Date());
   const year = cursor.getFullYear();
   const month = cursor.getMonth();
   const firstDay = new Date(year, month, 1).getDay();

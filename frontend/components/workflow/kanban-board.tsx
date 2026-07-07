@@ -1,7 +1,8 @@
 "use client";
+import { DueDateBadge } from "@/components/shared/due-date-badge";
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Calendar, User2 } from "lucide-react";
+import { User2 } from "lucide-react";
 import { Badge, riskVariant } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { tasks as seedTasks } from "@/lib/mock-data";
@@ -62,7 +63,7 @@ export function KanbanBoard() {
                   <Progress value={t.progress} />
                   <div className="flex items-center justify-between text-[11px] text-foreground-subtle">
                     <span className="flex items-center gap-1"><User2 className="h-3 w-3" /> {t.owner.split(" ")[0]}</span>
-                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {t.dueDate.slice(5)}</span>
+                    <DueDateBadge date={t.dueDate} />
                   </div>
                 </motion.div>
               ))}

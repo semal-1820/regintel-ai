@@ -1,4 +1,5 @@
 "use client";
+import { DueDateBadge } from "@/components/shared/due-date-badge";
 import * as React from "react";
 import { Badge, riskVariant, statusVariant } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -27,7 +28,7 @@ export function TasksTable() {
               <td className="px-4 py-3 text-foreground-muted">{t.owner}</td>
               <td className="px-4 py-3"><Badge variant={riskVariant(t.priority)}>{t.priority}</Badge></td>
               <td className="px-4 py-3"><Badge variant={statusVariant(t.status)}>{t.status}</Badge></td>
-              <td className="px-4 py-3 text-foreground-muted">{t.dueDate}</td>
+              <td className="px-4 py-3"><DueDateBadge date={t.dueDate} /></td>
               <td className="px-4 py-3"><Progress value={t.progress} /></td>
             </tr>
           ))}

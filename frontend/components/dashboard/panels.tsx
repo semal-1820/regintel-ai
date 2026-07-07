@@ -1,4 +1,5 @@
 "use client";
+import { DueDateBadge } from "@/components/shared/due-date-badge";
 import Link from "next/link";
 import { FileText, MoreHorizontal, Eye, Download, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,7 +49,7 @@ export function UpcomingTasksPanel() {
               <p className="text-[11.5px] text-foreground-muted">{t.department}</p>
             </div>
             <Badge variant={riskVariant(t.priority)}>{t.priority}</Badge>
-            <span className="w-16 shrink-0 text-right text-[11.5px] text-foreground-subtle">{t.dueDate.slice(5)}</span>
+            <DueDateBadge date={t.dueDate} className="shrink-0" />
           </div>
         ))}
       </div>

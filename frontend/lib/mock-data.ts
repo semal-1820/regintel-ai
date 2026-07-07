@@ -117,7 +117,15 @@ export const tasks = Array.from({ length: 25 }, (_, i) => {
     owner: dept.head,
     priority,
     status,
-    dueDate: `2024-0${(i % 9) + 1}-${10 + (i % 18)}`,
+    dueDate: (() => {
+  // Spread due dates from 5 days overdue to ~25 days out, relative to
+  // whenever the app is actually run — not a fixed 2024 date. Fixed
+  // mock dates would make every DueDateBadge show "overdue by 800+ days".
+  const offset = (i % 12) - 5;
+  const d = new Date();
+  d.setDate(d.getDate() + offset);
+  return d.toISOString().slice(0, 10);
+})(),
     progress,
     evidence: status === "Completed",
   };
